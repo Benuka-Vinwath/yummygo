@@ -1,11 +1,21 @@
 <script setup lang="ts">
+import NavBar from './components/NavBar.vue'
+import HeroSection from './components/HeroSection.vue'
+import PopularCategories from './components/PopularCategories.vue'
+import PopularRestaurants from './components/PopularRestaurants.vue'
+import TodayOffers from './components/TodayOffers.vue'
+import StatsSection from './components/StatsSection.vue'
+import FooterSection from './components/FooterSection.vue'
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-100">
-    <h1 class="text-3xl font-bold text-center pt-10">
-      YUMMY GO 🍔
-    </h1>
+  <div class="min-h-screen bg-white">
+    <NavBar />
+    <HeroSection />
+    <PopularCategories />
+    <PopularRestaurants />
+    <TodayOffers />
+     <StatsSection />
+     <FooterSection />
   </div>
 </template>
-
