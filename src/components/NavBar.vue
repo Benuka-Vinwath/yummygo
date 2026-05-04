@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
 import logo from '../assets/logo.png'
 
 const darkMode = ref(false)
+const route = useRoute()
 
 const toggleDarkMode = () => {
   darkMode.value = !darkMode.value
   document.documentElement.classList.toggle('dark', darkMode.value)
 }
+
+const isActive = (path: string) => route.path === path
 </script>
 
 <template>
@@ -55,17 +59,24 @@ const toggleDarkMode = () => {
 
       <!-- Menu -->
       <ul class="flex items-center gap-5 text-gray-900 dark:text-white">
-        
         <li>
-          <button class="bg-orange-500 text-white px-6 py-2 rounded-full font-semibold">
+          <RouterLink
+            to="/"
+            class="px-6 py-2 rounded-full font-semibold transition"
+            :class="isActive('/') ? 'bg-orange-500 text-white' : 'hover:bg-orange-100 dark:hover:bg-gray-800'"
+          >
             Home
-          </button>
+          </RouterLink>
         </li>
 
         <li>
-          <button class="px-4 py-2 rounded-full font-medium hover:bg-orange-100 dark:hover:bg-gray-800">
+          <RouterLink
+            to="/browse-menu"
+            class="px-4 py-2 rounded-full font-medium transition"
+            :class="isActive('/browse-menu') ? 'bg-orange-500 text-white' : 'hover:bg-orange-100 dark:hover:bg-gray-800'"
+          >
             Browse Menu
-          </button>
+          </RouterLink>
         </li>
 
         <li>
@@ -76,7 +87,7 @@ const toggleDarkMode = () => {
 
         <li>
           <button class="px-4 py-2 rounded-full font-medium hover:bg-orange-100 dark:hover:bg-gray-800">
-            Restaurants
+            Checkout
           </button>
         </li>
 

@@ -1,0 +1,148 @@
+{
+  "offers": [
+    {
+      "id": 1,
+      "title": "Buy 2 Pizzas, Get 1 Free",
+      "description": "Enjoy three loaded pizzas for one family combo price.",
+      "badge": "Buy 2 Pizza + 1 Free",
+      "category": "Pizza",
+      "section": "ALL OFFERS",
+      "imageUrl": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 2,
+      "title": "Rs. 1000 Off on Large Pizza",
+      "description": "Use code LARGE1000 at checkout for instant savings.",
+      "badge": "Rs. 1000 OFF / Large",
+      "category": "Pizza",
+      "section": "ALL OFFERS",
+      "imageUrl": "https://images.unsplash.com/photo-1593504049359-74330189a345?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 3,
+      "title": "Buy 2 Bigger Picks and Get 1 Free",
+      "description": "Perfect combo for game nights and weekend hangouts.",
+      "badge": "Weekend Special",
+      "category": "Pizza",
+      "section": "PIZZA DEALS",
+      "imageUrl": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 4,
+      "title": "Weekend Special Pizza Deal",
+      "description": "Extra cheese and one topping upgrade included.",
+      "badge": "Free Add-ons",
+      "category": "Pizza",
+      "section": "PIZZA DEALS",
+      "imageUrl": "https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 5,
+      "title": "Buy 2 Giant Dippers for the Price of 1",
+      "description": "A crispy giant dipper with classic dip and sauce.",
+      "badge": "2 for 1 Mega Dipper",
+      "category": "Burgers",
+      "section": "CRISPY DIPPERS",
+      "imageUrl": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 6,
+      "title": "Buy 2 Giant Dippers for Rs. 450",
+      "description": "Limited-time dipper combo with spicy mayo.",
+      "badge": "Rs. 450 Combo",
+      "category": "Burgers",
+      "section": "CRISPY DIPPERS",
+      "imageUrl": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 7,
+      "title": "Buy 1 Dipper and Save 50%",
+      "description": "Grab a second dipper at half the price today.",
+      "badge": "50% OFF 2nd Dipper",
+      "category": "Burgers",
+      "section": "CRISPY DIPPERS",
+      "imageUrl": "https://images.unsplash.com/photo-1606755962773-d324e2d53f36?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 8,
+      "title": "50% Off on Selected Pizza Deals",
+      "description": "Valid on regular and medium size pizzas.",
+      "badge": "Select Pizza Promotions",
+      "category": "Pizza",
+      "section": "PIZZA DEALS",
+      "imageUrl": "https://images.unsplash.com/photo-1604382355076-af4b0eb60143?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 9,
+      "title": "Buy 1 Dipper and Get 30% Off",
+      "description": "Discount applies automatically on your second order.",
+      "badge": "30% OFF 2nd Dipper",
+      "category": "Burgers",
+      "section": "CRISPY DIPPERS",
+      "imageUrl": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 10,
+      "title": "20% Off on Selected Pizza Deals",
+      "description": "Enjoy premium toppings at a lighter price.",
+      "badge": "20% Discount",
+      "category": "Pizza",
+      "section": "PIZZA DEALS",
+      "imageUrl": "https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 11,
+      "title": "Fresh Veg Bowl Combo",
+      "description": "Quinoa, roasted veggies, and avocado with lemon dressing.",
+      "badge": "Healthy Combo Save 25%",
+      "category": "Veg & Healthy",
+      "section": "VEG & HEALTHY",
+      "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 12,
+      "title": "Grilled Paneer Salad Deal",
+      "description": "Protein-packed paneer salad with herb vinaigrette.",
+      "badge": "Buy 1 Get 1 Salad",
+      "category": "Veg & Healthy",
+      "section": "VEG & HEALTHY",
+      "imageUrl": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 13,
+      "title": "Spicy Prawn Rice Box",
+      "description": "Butter rice topped with spicy prawns and veggies.",
+      "badge": "Seafood Weekend Pick",
+      "category": "Seafood",
+      "section": "SEAFOOD",
+      "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d29c?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 14,
+      "title": "Garlic Fish Fillet Meal",
+      "description": "Crispy fish fillet served with garlic dip and fries.",
+      "badge": "Rs. 500 OFF Seafood Meal",
+      "category": "Seafood",
+      "section": "SEAFOOD",
+      "imageUrl": "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 15,
+      "title": "Iced Coffee Duo",
+      "description": "Two iced coffees with choice of vanilla or mocha.",
+      "badge": "2 Drinks for Rs. 799",
+      "category": "Drinks",
+      "section": "DRINKS",
+      "imageUrl": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=240&q=80"
+    },
+    {
+      "id": 16,
+      "title": "Fresh Juice Family Pack",
+      "description": "Four fresh juices in your favorite seasonal flavors.",
+      "badge": "Family Drink Pack 30% OFF",
+      "category": "Drinks",
+      "section": "DRINKS",
+      "imageUrl": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=240&q=80"
+    }
+  ]
+}
