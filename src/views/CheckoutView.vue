@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const deliveryType = ref<'delivery' | 'collection'>('delivery')
 const paymentType = ref<'card' | 'cod'>('card')
 </script>
 
@@ -11,29 +10,6 @@ const paymentType = ref<'card' | 'cod'>('card')
       <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white">Checkout</h1>
 
       <div class="space-y-4">
-        <article class="rounded-xl border border-gray-200 bg-white p-4 shadow-sm md:p-5 dark:border-gray-800 dark:bg-gray-900">
-          <h2 class="mb-3 text-sm font-bold text-gray-900 dark:text-white">Delivery Method</h2>
-          <div class="flex w-fit rounded-full bg-gray-100 p-1 dark:bg-gray-800">
-            <button
-              type="button"
-              class="rounded-full px-5 py-1.5 text-xs font-semibold transition"
-              :class="deliveryType === 'delivery' ? 'bg-[#ff8908] text-white' : 'text-gray-600'"
-              @click="deliveryType = 'delivery'"
-            >
-              Delivery
-            </button>
-            <button
-              type="button"
-              class="rounded-full px-5 py-1.5 text-xs font-semibold transition"
-              :class="deliveryType === 'collection' ? 'bg-[#ff8908] text-white' : 'text-gray-600'"
-              @click="deliveryType = 'collection'"
-            >
-              Collection
-            </button>
-          </div>
-          <p class="mt-3 text-xs text-gray-500 dark:text-gray-400">Delivery in 20-25 minutes</p>
-        </article>
-
         <article class="rounded-xl border border-gray-200 bg-white p-4 shadow-sm md:p-5 dark:border-gray-800 dark:bg-gray-900">
           <h2 class="mb-3 text-sm font-bold text-gray-900 dark:text-white">Delivery Information</h2>
           <div class="grid gap-3 md:grid-cols-2">

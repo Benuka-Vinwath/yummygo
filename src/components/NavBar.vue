@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import logo from '../assets/logo.png'
 import LoginModal from './LoginModal.vue'
+import { useCart } from '../composables/useCart'
 
 const darkMode = ref(false)
 const loginOpen = ref(false)
 const mobileMenuOpen = ref(false)
+const { cartCount, openCart } = useCart()
+const displayCartCount = computed(() => (cartCount.value > 99 ? '99+' : String(cartCount.value)))
 
 onMounted(() => {
   const storedTheme = localStorage.getItem('theme')
@@ -38,10 +41,17 @@ const toggleDarkMode = () => {
         <div class="flex items-center gap-3">
           <button
             type="button"
-            class="rounded-lg bg-green-600 px-3 py-2 text-base text-white transition hover:bg-green-700"
+            class="relative rounded-lg bg-green-600 px-3 py-2 text-base text-white transition hover:bg-green-700"
             aria-label="Cart"
+            @click="openCart"
           >
             🛒
+            <span
+              v-if="cartCount"
+              class="absolute -right-2 -top-2 min-w-5 rounded-full bg-orange-500 px-1.5 py-0.5 text-[10px] font-bold leading-none text-white"
+            >
+              {{ displayCartCount }}
+            </span>
           </button>
 
           <button
@@ -91,16 +101,6 @@ const toggleDarkMode = () => {
             exact-active-class="!bg-orange-500 !text-white hover:!bg-orange-600 hover:!text-white"
           >
             Special Offers
-          </RouterLink>
-        </li>
-
-        <li>
-          <RouterLink
-            to="/checkout"
-            class="rounded-full px-5 py-2 text-gray-700 transition hover:text-orange-500 dark:text-gray-200 dark:hover:text-orange-400"
-            exact-active-class="!bg-orange-500 !text-white hover:!bg-orange-600 hover:!text-white"
-          >
-            Checkout
           </RouterLink>
         </li>
 
@@ -159,33 +159,6 @@ const toggleDarkMode = () => {
           @click="mobileMenuOpen = false"
         >
           Browse Menu
-        </RouterLink>
-
-        <RouterLink
-          to="/special-offers"
-          class="rounded-full px-4 py-3 text-gray-700 transition hover:bg-orange-50 hover:text-orange-500 dark:text-gray-200 dark:hover:bg-gray-800"
-          exact-active-class="!bg-orange-500 !text-white"
-          @click="mobileMenuOpen = false"
-        >
-          Special Offers
-        </RouterLink>
-
-        <RouterLink
-          to="/checkout"
-          class="rounded-full px-4 py-3 text-gray-700 transition hover:bg-orange-50 hover:text-orange-500 dark:text-gray-200 dark:hover:bg-gray-800"
-          exact-active-class="!bg-orange-500 !text-white"
-          @click="mobileMenuOpen = false"
-        >
-          Checkout
-        </RouterLink>
-
-        <RouterLink
-          to="/track-order"
-          class="rounded-full px-4 py-3 text-gray-700 transition hover:bg-orange-50 hover:text-orange-500 dark:text-gray-200 dark:hover:bg-gray-800"
-          exact-active-class="!bg-orange-500 !text-white"
-          @click="mobileMenuOpen = false"
-        >
-          Track Order
         </RouterLink>
 
         <button

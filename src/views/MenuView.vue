@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
+import ProductModal from '../components/ProductModal.vue'
+import { productDetailsById, type ProductDetailFields } from '../data/productDetails'
+import { useCart } from '../composables/useCart'
+import type { CartProductLike } from '../types/cart'
 
-type MenuOffer = {
+type MenuOffer = ProductDetailFields & {
   id: number
   title: string
   description: string
@@ -20,11 +24,24 @@ type DummyRecipe = {
   cookTimeMinutes: number 
 }
 
+const createFallbackDetails = (item: DummyRecipe): ProductDetailFields => ({
+  description: `${item.name} is prepared with fresh ingredients and balanced spices for a rich, comforting flavor. It is carefully cooked to keep the texture and aroma satisfying in every bite.`,
+  ingredients: ['Fresh vegetables', 'Chef blend spices', 'Herbs', 'House sauce'],
+  calories: '450 kcal',
+  serving: 'Serves 1',
+  deliveryTime: `${Math.max(15, item.cookTimeMinutes - 5)}-${item.cookTimeMinutes + 5} min`,
+  spicyLevel: 'Mild',
+  foodType: 'Veg',
+  tags: ['Fresh', 'Popular'],
+})
+
 const tabs = ['All', 'Pizza', 'Burgers', 'Veg & Healthy', 'Seafood', 'Drinks']
 
 const selectedTab = ref('All')
 const offers = ref<MenuOffer[]>([])
 const isLoading = ref(true)
+const selectedProduct = ref<MenuOffer | null>(null)
+const { addToCart, openCart } = useCart()
 
 const assignCategory = (id: number) => {
   const categories = ['Pizza', 'Burgers', 'Veg & Healthy', 'Seafood', 'Drinks']
@@ -50,9 +67,12 @@ const loadMenu = async () => {
    const data = (await response.json()) as { recipes: DummyRecipe[] }
 
 offers.value = data.recipes.map((item) => ({
+  ...((productDetailsById[item.id] || createFallbackDetails(item)) as ProductDetailFields),
   id: item.id,
   title: item.name,
-  description: `${item.cuisine} • ${item.cookTimeMinutes} min • ⭐ ${item.rating}`,
+  description:
+    productDetailsById[item.id]?.description ||
+    createFallbackDetails(item).description,
   badge: `Rs. ${800 + item.id * 120}`,
   category: assignCategory(item.id),
   section: 'POPULAR FOOD ITEMS',
@@ -67,6 +87,19 @@ offers.value = data.recipes.map((item) => ({
 }
 
 onMounted(loadMenu)
+
+const openProductModal = (item: MenuOffer) => {
+  selectedProduct.value = item
+}
+
+const closeProductModal = () => {
+  selectedProduct.value = null
+}
+
+const handleAddToBasket = (payload: { product: CartProductLike; quantity: number }) => {
+  addToCart(payload.product, payload.quantity)
+  openCart()
+}
 </script>
 
 <template>
@@ -110,23 +143,20 @@ onMounted(loadMenu)
             <div
               v-for="item in items"
               :key="item.id"
-              class="flex items-center justify-between rounded-xl border border-white/70 bg-white/85 p-3 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-md dark:border-gray-700 dark:bg-gray-800/85"
+              class="flex cursor-pointer items-center justify-between gap-3 rounded-2xl border border-white/70 bg-white/90 px-3 py-2.5 shadow-sm backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-gray-700 dark:bg-gray-800/90"
+              @click="openProductModal(item)"
             >
-              <div class="mr-3 min-w-0">
-                <p class="text-sm font-bold text-gray-900 dark:text-white">
+              <div class="min-w-0 flex-1">
+                <p class="truncate text-sm font-bold text-gray-900 dark:text-white md:text-base">
                   {{ item.title }}
                 </p>
 
-                <p class="mt-1 line-clamp-2 text-xs text-gray-500 dark:text-gray-400">
-                  {{ item.description }}
-                </p>
-
-                <p class="mt-2 text-xs font-semibold text-[#ff8908]">
+                <p class="mt-1 text-xs font-semibold text-[#ff8908] md:text-sm">
                   {{ item.badge }}
                 </p>
               </div>
 
-              <div class="relative h-20 w-20 flex-shrink-0">
+              <div class="relative h-16 w-16 flex-shrink-0 md:h-18 md:w-18">
                 <img
                   :src="item.imageUrl"
                   :alt="item.title"
@@ -134,8 +164,9 @@ onMounted(loadMenu)
                 />
 
                 <button
-                  class="absolute -bottom-1 -right-1 h-6 w-6 rounded-full bg-[#111827] text-sm font-bold text-white transition hover:bg-[#ff8908] dark:bg-gray-700"
+                  class="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#111827] text-sm font-bold text-white transition hover:bg-[#ff8908] dark:bg-gray-700"
                   type="button"
+                  @click.stop="openProductModal(item)"
                 >
                   +
                 </button>
@@ -152,5 +183,12 @@ onMounted(loadMenu)
         </p>
       </div>
     </div>
+
+    <ProductModal
+      v-if="selectedProduct"
+      :product="selectedProduct"
+      @close="closeProductModal"
+      @add-to-basket="handleAddToBasket"
+    />
   </section>
 </template>
