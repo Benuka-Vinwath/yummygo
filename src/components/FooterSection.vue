@@ -58,12 +58,7 @@ import logoDark from '../assets/logo-dark.png'
           we wont spam, read our <u>email policy</u>
         </p>
 
-        <div class="mt-5 flex gap-4 text-2xl">
-          <span>📘</span>
-          <span>📷</span>
-          <span>🎵</span>
-          <span>👻</span>
-        </div>
+        
       </div>
 
       <!-- Legal Pages -->
