@@ -83,14 +83,14 @@ const toggleDarkMode = () => {
     <nav class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 md:px-6">
 
       <!-- Logo -->
-      <RouterLink to="/" class="flex items-center">
-
-        <img
-          :src="darkMode ? logoDark : logoLight"
-          alt="YummyGo Logo"
-          class="h-10 w-auto object-contain md:h-12"
-        />
-
+      <RouterLink to="/" class="flex shrink-0 items-center">
+        <span class="flex h-10 items-center overflow-visible md:h-12">
+          <img
+            :src="darkMode ? logoDark : logoLight"
+            alt="YummyGo Logo"
+            class="h-10 w-auto origin-left scale-[4.25] object-contain md:h-12 md:scale-[5.5]"
+          />
+        </span>
       </RouterLink>
 
       <!-- Desktop Menu -->

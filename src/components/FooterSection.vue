@@ -12,16 +12,18 @@ import logoDark from '../assets/logo-dark.png'
       <!-- Logo + Info -->
       <div>
         <RouterLink to="/" class="mb-4 inline-flex items-center">
-          <img
-            :src="logoLight"
-            alt="YummyGo Logo"
-            class="h-10 w-auto object-contain md:h-12 dark:hidden"
-          />
-          <img
-            :src="logoDark"
-            alt="YummyGo Logo"
-            class="hidden h-10 w-auto object-contain md:h-12 dark:block"
-          />
+          <span class="flex h-10 items-center overflow-visible md:h-12">
+            <img
+              :src="logoLight"
+              alt="YummyGo Logo"
+              class="h-10 w-auto origin-left scale-[4.25] object-contain md:h-12 md:scale-[5.5] dark:hidden"
+            />
+            <img
+              :src="logoDark"
+              alt="YummyGo Logo"
+              class="hidden h-10 w-auto origin-left scale-[4.25] object-contain md:h-12 md:scale-[5.5] dark:block"
+            />
+          </span>
         </RouterLink>
 
         <div class="flex gap-4 text-sm text-gray-700 dark:text-gray-300">
