@@ -13,7 +13,7 @@ const buyItem = (item: (typeof popularFoodItems)[number]) => {
 <template>
   <section class="bg-white px-16 py-10 dark:bg-gray-950">
     <h2 class="mb-8 text-3xl font-extrabold text-gray-950 dark:text-white">
-      YUMMY GO Popular Food Items 🤩
+      YUMMY GO Popular Food Items 
     </h2>
 
     <div class="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-6">
